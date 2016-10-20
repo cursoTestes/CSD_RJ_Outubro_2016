@@ -34,7 +34,7 @@ public class CalculadoraRoyalties {
 		float totalComissao = 0;
 		float totalVenda = 0;
 		for (Venda venda : vendas) {
-			totalComissao += calculadoraComissao.calculaComissao(venda.getValor());
+			//totalComissao += calculadoraComissao.calculaComissao(venda.getValor());
 			totalVenda += venda.getValor();
 		}
 		return (totalVenda - totalComissao) * PERCENTUAL;

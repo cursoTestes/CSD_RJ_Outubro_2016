@@ -52,10 +52,10 @@ public class TestCalculadoraRoyalties {
 		
 		int mes =  2;
 		int ano = 2016;
-		float esperado = 19;
+		float esperado = 20;
 		
 		float valorVenda = 100;
-		Mockito.when(calculadoraComissao.calculaComissao(valorVenda)).thenReturn(5.0f);
+		Mockito.when(calculadoraComissao.calculaComissao(Mockito.anyFloat())).thenReturn(0f);
 		
 		
 		List<Venda> listaVendas = new ArrayList<Venda>();
@@ -70,6 +70,9 @@ public class TestCalculadoraRoyalties {
 		float resultado = calculadoraRoyalties.calcular(mes,ano);
 
 		assertEquals(esperado, resultado, 0);
+		
+		Mockito.verify(calculadoraComissao, Mockito.times(1)).calculaComissao(Mockito.anyFloat());
+		
 	}	
 	
 	@Test
